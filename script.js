@@ -36,3 +36,11 @@ document.querySelector('#search-text').addEventListener('input', e => {
     filters.searchText = e.target.value;
     render(notes, filters)
 })
+
+document.querySelector('#create-note').addEventListener('click', () => {
+    notes.push({
+        title: 'undefined',
+        body: 'undefined'
+    })
+    render(notes, filters)
+})
