@@ -23,7 +23,7 @@ const generateNoteDOM = (note) => {
 
 	// Setup the note title text
 	textEl.textContent = note.title;
-	textEl.setAttribute("href", "#");
+	textEl.setAttribute("href", `/edit.html#${note.id}`);
 	noteEl.appendChild(textEl);
 
 	// Setup the remove button
