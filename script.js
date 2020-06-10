@@ -1,4 +1,4 @@
-const notes = []
+const notes = JSON.parse(localStorage.getItem('notes'))
 
 
 const filters = {
