@@ -19,5 +19,5 @@ document.querySelector('#create-note').addEventListener('click', () => {
         body: 'undefined'
     })
     saveNotes(notes)
-    render(notes, filters)
+    location.assign(`edit.html#${id}`)
 })
