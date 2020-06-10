@@ -31,3 +31,8 @@ const render = (notes, filters) => {
 }
 
 render(notes, filters)
+
+document.querySelector('#search-text').addEventListener('input', e => {
+    filters.searchText = e.target.value;
+    render(notes, filters)
+})
