@@ -13,9 +13,19 @@ const render = (notes, filters) => {
     document.querySelector('#notes').innerHTML = ``
 
     filteredNotes.forEach(note => {
-        const p = document.createElement('p')
-        p.textContent = note.title;
-        document.querySelector('#notes').appendChild(p)
+        const noteEl = document.createElement('div')
+        const textEl = document.createElement('p')
+        const button = document.createElement('button');
+
+        // Setup the note title text
+        textEl.textContent = note.title;
+        noteEl.appendChild(textEl);
+
+        // Setup the remove button
+        button.textContent = 'x'
+        noteEl.appendChild(button)
+
+        document.querySelector('#notes').appendChild(noteEl)
     });
 }
 
