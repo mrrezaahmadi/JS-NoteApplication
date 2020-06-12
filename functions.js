@@ -18,12 +18,16 @@ const removeNote = (id) => {
 
 const generateNoteDOM = (note) => {
 	const noteEl = document.createElement("div");
-	const textEl = document.createElement("a");
+	const textEl = document.createElement('a');
 	const button = document.createElement("button");
 
 	// Setup the note title text
-	textEl.textContent = note.title;
-	textEl.setAttribute("href", `/edit.html#${note.id}`);
+	if (note.title.length > 0) {
+		$(textEl).text(note.title);
+	} else {
+		$(textEl).text('Undefined');
+	}
+	$(textEl).attr("href", `/edit.html#${note.id}`);
 	noteEl.appendChild(textEl);
 
 	// Setup the remove button
@@ -43,9 +47,9 @@ const render = (notes, filters) => {
 		return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
 	});
 
-	document.querySelector("#notes").innerHTML = ``;
+	$('#notes').html('');
 
 	filteredNotes.forEach((note) => {
-		document.querySelector("#notes").appendChild(generateNoteDOM(note));
+		$("#notes").append(generateNoteDOM(note));
 	});
 };
